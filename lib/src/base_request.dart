@@ -85,7 +85,7 @@ abstract class BaseRequest {
   BaseRequest(this.method, this.url)
       : headers = LinkedHashMap(
             equals: (key1, key2) => key1.toLowerCase() == key2.toLowerCase(),
-            hashCode: (key) => key.toLowerCase().hashCode);
+            hashCode: (key) => key.hashCode);
 
   /// Finalizes the HTTP request in preparation for it being sent. This freezes
   /// all mutable fields and returns a single-subscription [ByteStream] that
