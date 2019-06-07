@@ -39,6 +39,9 @@ class IOClient extends BaseClient {
             request.contentLength == null ? -1 : request.contentLength
         ..persistentConnection = request.persistentConnection;
       request.headers.forEach((name, value) {
+        print('kurwa');
+        print(value);
+        print(name);
         ioRequest.headers.set(name, value);
       });
 
@@ -46,6 +49,8 @@ class IOClient extends BaseClient {
           await stream.pipe(DelegatingStreamConsumer.typed(ioRequest));
       var headers = <String, String>{};
       response.headers.forEach((key, values) {
+        print(key);
+        print(values);
         headers[key] = values.join(',');
       });
 
